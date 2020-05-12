@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>My todolist</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body>
+    <container>
+      <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Node.js To Do List</a>
+      </nav>
+    </container>
+    <container>
+      <div class="row justify-content-center">
+        <form class="form-inline m-2" action="/todo/add/" method="post">
+          <div class="form-group">
+            <label for="newtodo">Add a new task: </label>
+            <input
+              type="text"
+              name="newtodo"
+              class="form-control"
+              id="newtodo"
+              autofocus
+            />
+            <label for="newtodopriority"
+              >Choose a priority for this task:
+            </label>
+            <select
+              id="newtodopriority"
+              class="form-control"
+              name="newtodopriority"
+            >
+              <option value="low">low</option>
+              <option value="medium">medium</option>
+              <option value="high">high</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Add Task</button>
+          </div>
+        </form>
+      </div>
+      <ul class="list-group">
+        <% todolist.forEach(function(todo, index) { %>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          <%= todo %>
+          <a
+            href="/todo/delete/<%= index %>"
+            class="btn btn-danger btn-sm"
+            role="button"
+            >Delete</a
+          >
+        </li>
+        <% }); %>
+      </ul>
+    </container>
+  </body>
+</html>

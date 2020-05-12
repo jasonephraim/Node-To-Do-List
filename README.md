@@ -2,4 +2,4 @@
 
 Simple to do list written with Node.js and Express
 
-[Live Demo](nodetodolistapp.surge.sh)
+[Live Demo](http://nodetodolistapp.surge.sh)
